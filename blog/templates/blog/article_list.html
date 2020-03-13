@@ -1,0 +1,11 @@
+{% block content %}
+
+    {% if latest_article_list %}
+        {% for article in latest_article_list %}
+            <p>{{ article.article_title }}</p>
+        {% endfor %}
+    {% else %}
+        <p>No articles are available at the moment</p>
+    {% endif %}
+
+{% endblock content %}

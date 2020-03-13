@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% block stylesheet %}{ %endblock stylesheet %}">
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+</head>
+<body>
+    <div class="grid-container">
+        <header role="banner">
+
+            {% include 'header.html' %}
+        
+        </header>
+
+        <main role="main">
+        
+            {% block content %}
+            {% endblock content %}
+
+        </main>
+    
+        <footer role="contentinfo">
+
+            {% include 'footer.html' %}
+        
+        </footer>
+    </div>
+</body>
+</html>
