@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+{% static 'blog/css/article_detail.css'%}
+{% endblock stylesheet %}
+
+{% block title %}
+{{ article.article_title|truncatewords:5 }}
+{% endblock title %}
+
+{% block content %}
+<div class="main-container">
+
+    <div class="detail-card">
+
+        <div class="detail-card__title">
+            <h3>{{ article.article_title }}</h3>
+            <h5>By {{ article.user }}</h5>
+            <span>Last modified on {{ article.mod_date }}</span>
+        </div>
+
+        <div class="detail-card__body">
+            <p>{{ article.article_body }}</p>
+        </div>
+
+        <div class="detail-card__cta">
+            <a href="{% url 'blog:articles'%}">Go back</a>
+            <p>Published on {{ article.pub_date }}</p>
+        </div>
+    
+    </div>
+
+</div>
+{% endblock content %}

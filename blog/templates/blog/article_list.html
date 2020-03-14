@@ -25,7 +25,7 @@
                     {{ article.article_body|truncatewords:20 }}
                 </div>
                 <div class="article-card__cta">
-                    <a href="#">Read more</a>
+                    <a href="{% url 'blog:article' article.id %}">Read more</a>
                     <p>Published on {{ article.pub_date }}</p>
                 </div>
             </div>

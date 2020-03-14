@@ -1,10 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView
 
 from .models import Article
 
-class ArticleList(ListView):
-    model = Article
-    context_object_name = 'latest_article_list'
-    queryset = Article.objects.order_by('-pub_date')[:5]
-    template_name = 'blog/article_list.html'
+def article_list(request):
+    latest_article_list = Article.objects.order_by('-pub_date')[:5]
+    context = {
+        'latest_article_list': latest_article_list
+    }
+    return render(request, 'blog/article_list.html', context)
+
+def article_detail(request, article_id):
+    article = get_object_or_404(Article, pk=article_id)
+    context = {
+        'article': article
+    }
+    return render(request, 'blog/article_detail.html', context)
