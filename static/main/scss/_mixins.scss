@@ -1,0 +1,24 @@
+// Mixins
+@mixin flex-center() {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+}
+
+@mixin background-text($color) {
+    background-color: $color;
+    color: change-color($color);
+}
+
+// Functions
+@function change-color($color) {
+    @if (lightness($color) > 40) {
+        @return $dark-text-color;
+    }
+    @else {
+        @return $light-text-color;
+    }
+}

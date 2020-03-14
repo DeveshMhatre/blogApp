@@ -1,0 +1,16 @@
+.header-container {
+    width: 100%;
+    height: 100%;
+    @include background-text($secondary-color);
+    box-shadow: 0 .1rem .8rem change-color($primary-color);
+}
+
+nav {
+    @include flex-center();
+    width: 100%;
+    height: 100%;
+
+    @at-root .#{&}__brand {
+        font-family: $heading-font;
+    }
+}

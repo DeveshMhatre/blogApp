@@ -1,0 +1,42 @@
+@import '../../../../static/main/scss/utility';
+
+.article-card {
+    width: 100%;
+    min-height: 10rem;
+    margin: 1rem 0;
+    border-radius: .8rem;
+    @include background-text($card-color);
+
+    @at-root #{&}__title {
+        @extend .article-card__body;
+        border-top-left-radius: .8rem;
+        border-top-right-radius: .8rem;
+        @include background-text(darken($card-color, 15));
+
+        span {
+            font-size: 1.2rem;
+        }
+    }
+    @at-root #{&}__body {
+        padding: 1rem 2rem;
+    }
+    @at-root #{&}__cta {
+        @extend .article-card__body;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: justify;
+                justify-content: space-between;
+        -webkit-box-align: baseline;
+                align-items: baseline;
+
+        p {
+            font-size: 1.2rem;
+        }
+        a {
+            color: change-color($card-color);
+        }
+        a:hover {
+            color: lighten(change-color($card-color), 20);
+        }
+    }
+}

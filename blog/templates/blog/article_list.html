@@ -1,11 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+    {% static 'blog/css/article_list.css' %}
+{% endblock stylesheet %}
+
+{% block title %}
+    Latest Articles
+{% endblock title %}
+
 {% block content %}
 
+<div class="main-container">
+
     {% if latest_article_list %}
+
         {% for article in latest_article_list %}
-            <p>{{ article.article_title }}</p>
+            <div class="article-card">
+                <div class="article-card__title">
+                    {{ article.article_title }} <span>by {{ article.user }}</span>
+                </div>
+                <div class="article-card__body">
+                    {{ article.article_body|truncatewords:20 }}
+                </div>
+                <div class="article-card__cta">
+                    <a href="#">Read more</a>
+                    <p>Published on {{ article.pub_date }}</p>
+                </div>
+            </div>
         {% endfor %}
+
     {% else %}
         <p>No articles are available at the moment</p>
     {% endif %}
+
+</div>
 
 {% endblock content %}
