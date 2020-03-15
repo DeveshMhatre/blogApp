@@ -16,9 +16,13 @@
     <div class="detail-card">
 
         <div class="detail-card__title">
-            <h3>{{ article.article_title }}</h3>
-            <h5>By {{ article.user }}</h5>
-            <span>Last modified on {{ article.mod_date }}</span>
+            <span>
+                <h3>{{ article.article_title }}</h3>
+                <h5>By {{ article.user }}</h5>
+            </span>
+            {% if article.is_moded %}
+                <span class="article-mod-date">Last modified on {{ article.mod_date }}</span>
+            {% endif %}
         </div>
 
         <div class="detail-card__body">

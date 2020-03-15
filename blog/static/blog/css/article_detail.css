@@ -7,20 +7,16 @@
 .detail-card__title {
   display: -webkit-box;
   display: flex;
-  -webkit-box-pack: start;
-  justify-content: flex-start;
-  -webkit-box-align: baseline;
-  align-items: baseline;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-flow: column;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
   background-color: #2D2D44;
   color: #DEACF5;
   border-radius: .8rem .8rem 0 0;
 }
 
-.detail-card__title span {
-  margin-left: auto;
+.detail-card__title .article-mod-date {
   font-size: 1.2rem;
 }
 

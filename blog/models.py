@@ -21,3 +21,9 @@ class Article(models.Model):
         verbose_name='Modified on',
         auto_now=True,
     )
+
+    # To check if the article has been modified or not
+    def is_moded(self, *args, **kwargs):
+        pub = str(self.pub_date).split('.')[0]
+        mod = str(self.mod_date).split('.')[0]
+        return pub != mod

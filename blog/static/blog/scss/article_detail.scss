@@ -7,19 +7,15 @@
     @at-root #{&}__title {
         display: -webkit-box;
         display: flex;
-        -webkit-box-pack: start;
-                justify-content: flex-start;
-        -webkit-box-align: baseline;
-                align-items: baseline;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-                flex-flow: column;
+        -webkit-box-pack: justify;
+                justify-content: space-between;
+        -webkit-box-align: center;
+                align-items: center;
         @extend .detail-card__body;
         @include background-text($secondary-color);
         border-radius: .8rem .8rem 0 0;
 
-        span {
-            margin-left: auto;
+        .article-mod-date {
             font-size: 1.2rem;
         }
     }
