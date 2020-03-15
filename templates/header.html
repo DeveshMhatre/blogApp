@@ -3,5 +3,16 @@
         <div class="nav__brand">
             <h3><a href="{% url 'blog:articles' %}">Personal Blog</a></h3>
         </div>
+        {% if request.user.is_authenticated %}
+            <div class="nav__dashboard">
+                <span>Welcome, {{ request.user }}</span>
+                <a href="#">Logout</a>
+            </div>
+        {% else %}
+            <div class="nav__dashboard">
+                <a href="{% url 'accounts:register' %}">Register</a>
+                <a href="#">Login</a>
+            </div>
+        {% endif %}
     </nav>
 </div>

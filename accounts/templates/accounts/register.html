@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+{% static 'accounts/css/register.css' %}
+{% endblock stylesheet %}
+
+{% block title %}
+Sign up
+{% endblock title %}
+
+{% block content %}
+    <form action="" method="POST">
+        {{ form.as_p }}
+        <input type="submit" value="Sign up">
+    </form>
+{% endblock content %}

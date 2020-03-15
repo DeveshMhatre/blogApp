@@ -64,16 +64,22 @@ footer {
 nav {
   display: -webkit-box;
   display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
   align-items: center;
-  width: 100%;
+  margin: 0 2rem;
   height: 100%;
+  font-family: "Cormorant Garamond", serif;
 }
 
-.nav__brand {
-  font-family: "Cormorant Garamond", serif;
+.nav__dashboard {
+  font-size: 1.4rem;
+}
+
+.nav__dashboard span:first-child,
+.nav__dashboard a:first-child {
+  margin-right: 1rem;
 }
 
 .footer-container {

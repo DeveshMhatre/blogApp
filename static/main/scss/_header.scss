@@ -6,11 +6,22 @@
 }
 
 nav {
-    @include flex-center();
-    width: 100%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+            align-items: center;
+    margin: 0 2rem;
     height: 100%;
+    font-family: $heading-font;
 
-    @at-root .#{&}__brand {
-        font-family: $heading-font;
+    @at-root .#{&}__dashboard {
+        font-size: 1.4rem;
+        
+        span:first-child,
+        a:first-child {
+            margin-right: 1rem;
+        }
     }
 }
