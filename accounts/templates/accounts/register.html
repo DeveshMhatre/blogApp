@@ -11,8 +11,11 @@ Sign up
 {% endblock title %}
 
 {% block content %}
+<div class="main-container">
     <form action="" method="POST">
+    {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Sign up">
     </form>
+</div>
 {% endblock content %}

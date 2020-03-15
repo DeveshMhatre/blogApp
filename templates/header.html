@@ -6,12 +6,12 @@
         {% if request.user.is_authenticated %}
             <div class="nav__dashboard">
                 <span>Welcome, {{ request.user }}</span>
-                <a href="#">Logout</a>
+                <a href="{% url 'accounts:logout' %}">Logout</a>
             </div>
         {% else %}
             <div class="nav__dashboard">
                 <a href="{% url 'accounts:register' %}">Register</a>
-                <a href="#">Login</a>
+                <a href="{% url 'accounts:login' %}">Login</a>
             </div>
         {% endif %}
     </nav>
