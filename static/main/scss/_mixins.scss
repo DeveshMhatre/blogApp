@@ -13,6 +13,11 @@
     color: change-color($color);
 }
 
+@mixin message-color($color) {
+    border-color: $color;
+    color: $color
+}
+
 // Functions
 @function change-color($color) {
     @if (lightness($color) > 40) {

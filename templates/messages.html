@@ -1,0 +1,21 @@
+{% if messages %}
+
+<ul class="message-container">
+    {% for message in messages %}
+        <li class="message message--{{ message.tags }}">
+        {{ message }}
+
+        {% if form.errors %}
+            {% for field in form %}
+                <ul class="field-errors">
+                    {% if field.errors %}
+                        <li class="message--warning">{{ field.errors }}</li>
+                    {% endif %}
+                </ul>
+            {% endfor %}
+        {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
+{% endif %}
