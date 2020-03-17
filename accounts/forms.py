@@ -15,7 +15,7 @@ class RegisterForm(UserCreationForm):
     email = forms.EmailField(
         widget=forms.EmailInput(
             attrs={
-                'placeholder': 'Enter email address'
+                'placeholder': 'Enter email address',
             }
         ),
     )
@@ -25,7 +25,7 @@ class RegisterForm(UserCreationForm):
         label='Password',
         widget=forms.PasswordInput(
             attrs={
-                'placeholder': 'Enter password'
+                'placeholder': 'Enter password',
             }
         )
     )
@@ -35,7 +35,7 @@ class RegisterForm(UserCreationForm):
         label='Repeat password',
         widget=forms.PasswordInput(
             attrs={
-                'placeholder': 'Confirm password'
+                'placeholder': 'Confirm password',
             }
         )
     )

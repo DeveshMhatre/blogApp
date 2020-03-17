@@ -1,1 +1,42 @@
-/* No CSS */
+.heading--center {
+  font-family: "Cormorant Garamond", serif;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.login-form-container {
+  width: 80%;
+  padding: 2rem;
+  margin: auto;
+  border-radius: .8rem;
+  background-color: #F7F7F7;
+  color: #28104E;
+}
+
+.form__input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .8rem;
+}
+
+.form__input input {
+  padding: .5rem;
+}
+
+.form__input--submit {
+  display: block;
+  width: 100%;
+  margin: 2.5rem auto 0 auto;
+  padding: .8rem;
+  border: none;
+  border-radius: .8rem;
+  background-color: #2D2D44;
+  color: #DEACF5;
+  cursor: pointer;
+}
+
+.form__input--submit:hover {
+  background-color: #553555;
+  color: #DEACF5;
+}

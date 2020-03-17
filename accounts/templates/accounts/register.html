@@ -12,10 +12,18 @@ Sign up
 
 {% block content %}
 <div class="main-container">
-    <form action="" method="POST">
-    {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Sign up">
-    </form>
+    <h1 class="heading--center">Register</h1>
+    <div class="register-form-container" role="form">
+        <form action="" method="POST">
+        {% csrf_token %}
+            {% for field in form %}
+                <p class="form__input">
+                    {{ field.label }}
+                    {{ field }}
+                </p>
+            {% endfor %}
+            <button class="form__input--submit">Sign up</button>
+        </form>
+    </div>
 </div>
 {% endblock content %}
