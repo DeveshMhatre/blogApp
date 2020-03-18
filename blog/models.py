@@ -22,8 +22,14 @@ class Article(models.Model):
         auto_now=True,
     )
 
+    def __str__(self):
+        return self.article_title
+
     # To check if the article has been modified or not
     def is_moded(self, *args, **kwargs):
         pub = str(self.pub_date).split('.')[0]
         mod = str(self.mod_date).split('.')[0]
         return pub != mod
+
+    class Meta:
+        ordering = ['-pub_date']

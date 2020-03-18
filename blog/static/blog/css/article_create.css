@@ -1,0 +1,46 @@
+.create-form-container {
+  width: 80%;
+  padding: 2rem;
+  margin: auto;
+  border-radius: .8rem;
+  background-color: #F7F7F7;
+  color: #28104E;
+}
+
+.form__input--text, .form__input--textarea {
+  width: 100%;
+  border: none;
+  padding: .5rem;
+  background-color: #F7F7F7;
+  color: #28104E;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+}
+
+.form__input--text:invalid, .form__input--textarea:invalid {
+  box-shadow: none;
+}
+
+.form__input--textarea {
+  margin-top: 1rem;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.6rem;
+  resize: none;
+}
+
+.form__input--submit {
+  display: block;
+  width: 100%;
+  margin: 2.5rem auto 0 auto;
+  padding: .8rem;
+  border: none;
+  border-radius: .8rem;
+  background-color: #2D2D44;
+  color: #DEACF5;
+  cursor: pointer;
+}
+
+.form__input--submit:hover {
+  background-color: #553555;
+  color: #DEACF5;
+}
