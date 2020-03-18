@@ -49,7 +49,7 @@ class LoginForm(forms.Form):
         label='Username',
         widget=forms.TextInput(
             attrs={
-                'placeholder': 'Enter username'
+                'placeholder': 'Enter your username'
             }
         )
     )
@@ -57,7 +57,7 @@ class LoginForm(forms.Form):
         label='Password',
         widget=forms.PasswordInput(
             attrs={
-                'placeholder': 'Enter password'
+                'placeholder': 'Enter your password'
             }
         )
     )

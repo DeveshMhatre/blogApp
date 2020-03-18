@@ -1,0 +1,50 @@
+.heading--center {
+  font-family: "Cormorant Garamond", serif;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.article-card {
+  width: 100%;
+  min-height: 10rem;
+  margin: 1rem 0;
+  background-color: #F7F7F7;
+  color: #28104E;
+  border-radius: .8rem;
+}
+
+.article-card__title {
+  border-radius: .8rem .8rem 0 0;
+  background-color: #2D2D44;
+  color: #DEACF5;
+}
+
+.article-card__title span {
+  font-size: 1.2rem;
+}
+
+.article-card__body, .article-card__title, .article-card__cta {
+  padding: 1rem 2rem;
+}
+
+.article-card__cta {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: baseline;
+  align-items: baseline;
+}
+
+.article-card__cta a {
+  margin-right: .5rem;
+  color: #28104E;
+}
+
+.article-card__cta a:hover {
+  color: #5321a3;
+}
+
+.article-card__cta p {
+  font-size: 1.2rem;
+}

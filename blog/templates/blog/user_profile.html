@@ -3,17 +3,19 @@
 {% load static %}
 
 {% block stylesheet %}
-{% static 'accounts/css/login.css' %}
+{% static 'blog/css/user_profile.css' %}
 {% endblock stylesheet %}
 
 {% block title %}
-Login
+{{ request.user }}'s Profile Page
 {% endblock title %}
 
 {% block content %}
+
 <div class="main-container">
-    <div class="login-form-container">
-        <h1 class="heading--center">Login</h1>
+
+    <div class="user-form-container" role="form">
+        <h1 class="heading--center">Manage your profile</h1>
         <form action="" method="POST">
         {% csrf_token %}
             {% for field in form %}
@@ -22,8 +24,12 @@ Login
                     {{ field }}
                 </p>
             {% endfor %}
-            <button class="form__input--submit">Log in</button>
+            <button class="form__input--submit">Update settings</button>
         </form>
+        <p class="extra-links">To change your password, <a href="#">click here</a>.</p>
+        <p class="extra-links">To manage your articles, <a href="{% url 'blog:user_articles' request.user.id %}">click here</a>.</p>
     </div>
+
 </div>
+
 {% endblock content %}

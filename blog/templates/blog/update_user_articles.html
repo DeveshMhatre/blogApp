@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+{% static 'blog/css/update_user_articles.css' %}
+{% endblock stylesheet %}
+
+{% block title %}
+Manage Your Articles
+{% endblock title %}
+
+{% block content %}
+<div class="main-container">
+
+    {% if articles %}
+
+        <h1 class="heading--center">Your Articles</h1>
+
+        {% for article in articles %}
+            <div class="article-card">
+                <div class="article-card__title">
+                    {{ article.article_title }}
+                </div>
+                <div class="article-card__body">
+                    {{ article.article_body|truncatewords:20 }}
+                </div>
+                <div class="article-card__cta">
+                    <span>
+                        <a href="{% url 'blog:article' article.id %}">Update</a>
+                        <a href="{% url 'blog:delete_article' article.id %}">Delete</a>
+                    </span>
+                    <p>Published on {{ article.pub_date }}</p>
+                </div>
+            </div>
+        {% endfor %}
+
+    {% else %}
+        <center>
+            <p>You have not posted any articles yet.</p>
+        </center>
+    {% endif %}
+
+</div>
+{% endblock content %}

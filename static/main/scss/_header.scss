@@ -19,8 +19,7 @@ nav {
     @at-root .#{&}__dashboard {
         font-size: 1.4rem;
         
-        span:first-child,
-        a:first-child {
+        a:not(last-child) {
             margin-right: 1rem;
         }
     }

@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 
@@ -46,7 +47,7 @@ def login_user(request):
             if user != None:
                 login(request, user=user)
                 messages.success(request, 'Signed in successfully')
-                return redirect('blog:articles')
+                return HttpResponseRedirect(reverse('blog:user_profile', args=[user.id]))
             else:
                 messages.warning(request, 'The Username or Password is incorrect. Please try again.')
     else:
@@ -61,4 +62,4 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     messages.info(request, 'You successfully logged out.')
-    return redirect('accounts:login')
+    return redirect('blog:articles')
