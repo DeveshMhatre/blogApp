@@ -1,5 +1,4 @@
-@import './../../../../static/main/scss/variables';
-@import './../../../../static/main/scss/mixins';
+@import './../../../../static/main/scss/utility';
 
 .heading--center {
     font-family: $heading-font;
@@ -17,9 +16,12 @@
 }
 
 .form__input {
+    display: -webkit-box;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+            align-items: center;
     margin-bottom: .8rem;
 
     input {

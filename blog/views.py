@@ -5,8 +5,9 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 
 from .models import Article
-from .forms import CreateArticleForm, UserUpdateForm
+from .forms import ArticleForm, UserUpdateForm
 
+# Views for guest users
 def article_list(request):
     latest_article_list = Article.objects.order_by('-pub_date')[:5]
     context = {
@@ -24,7 +25,9 @@ def article_detail(request, article_id):
 # User profile
 # View for user profile, from which a user can CRUD their articles
 @login_required(login_url='accounts:login')
-def user_profile(request, user_id):
+def user_profile(request):
+    user_id = request.user.id
+
     user = User.objects.get(pk=user_id)
 
     if request.method == 'POST':
@@ -44,25 +47,16 @@ def user_profile(request, user_id):
 
     return render(request, 'blog/user_profile.html', context)
 
-@login_required(login_url='accounts:login')
-def update_user_articles(request, user_id):
-    user = User.objects.get(pk=user_id)
-
-    articles = user.article_set.all()
-
-    context = {
-        'articles': articles
-    }
-
-    return render(request, 'blog/update_user_articles.html', context)
-
 # Create
 # View for creating new articles
 @login_required(login_url='accounts:login')
 def article_create(request):
-    user = User.objects.get(username=request.user)
+    user_id = request.user.id
+
+    user = User.objects.get(pk=user_id)
+
     if request.method == 'POST':
-        form = CreateArticleForm(request.POST)
+        form = ArticleForm(request.POST)
         if form.is_valid():
             # In order to pre-assign user
             instance = form.save(commit=False)
@@ -74,7 +68,7 @@ def article_create(request):
         else:
             messages.warning(request, 'Please correct the errors below:')
     else:
-        form = CreateArticleForm()
+        form = ArticleForm()
 
     context = {
         'form': form
@@ -82,8 +76,62 @@ def article_create(request):
     
     return render(request, 'blog/article_create.html', context)
 
+# Read
+# View for listing articles posted by a user
+@login_required(login_url='accounts:login')
+def list_user_articles(request):
+    user_id = request.user.id
+
+    user = User.objects.get(pk=user_id)
+
+    articles = user.article_set.all()
+
+    context = {
+        'articles': articles
+    }
+
+    return render(request, 'blog/list_user_articles.html', context)
+
+# Update
+# View for updating user articles
+@login_required(login_url='accounts:login')
+def update_user_article(request, article_id):
+    user_id = request.user.id
+
+    user = User.objects.get(pk=user_id)
+
+    articles = user.article_set.all()
+
+    article = get_object_or_404(articles, pk=article_id)
+
+    if request.method == 'POST':
+        form = ArticleForm(request.POST, instance=article)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Article updated successfully.')
+        else:
+            messages.warning(request, 'Please correct the errors below:')
+    else:
+        form = ArticleForm(instance=article)
+    
+    context = {
+        'form': form,
+        'article': article
+    }
+
+    return render(request, 'blog/update_user_article.html', context)
+
+# Delete
+# View for deleting user articles
 def delete_user_article(request, article_id):
-    article = Article.objects.get(pk=article_id)
+    user_id = request.user.id
+
+    user = User.objects.get(pk=user_id)
+
+    articles = user.article_set.all()
+
+    article = get_object_or_404(articles, pk=article_id)
+
     article.delete()
     messages.success(request, 'Article deleted successfully.')
-    return HttpResponseRedirect(reverse('blog:user_articles', args=[request.user.id]))
+    return redirect('blog:user_articles')

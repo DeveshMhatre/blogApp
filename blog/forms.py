@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 from .models import Article
 
-class CreateArticleForm(forms.ModelForm):
+class ArticleForm(forms.ModelForm):
     article_title = forms.CharField(
         label='',
         widget=forms.TextInput(

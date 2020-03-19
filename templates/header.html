@@ -6,7 +6,7 @@
         {% if request.user.is_authenticated %}
             <div class="nav__dashboard">
                 <a href="{% url 'blog:create_article' %}">New article</a>
-                <a href="{% url 'blog:user_profile' request.user.id %}">Your profile</a>
+                <a href="{% url 'blog:user_profile' %}">Your profile</a>
                 <a href="{% url 'accounts:logout' %}">Logout</a>
             </div>
         {% else %}

@@ -27,7 +27,7 @@ Manage Your Articles
                 </div>
                 <div class="article-card__cta">
                     <span>
-                        <a href="{% url 'blog:article' article.id %}">Update</a>
+                        <a href="{% url 'blog:update_article' article.id %}">Update</a>
                         <a href="{% url 'blog:delete_article' article.id %}">Delete</a>
                     </span>
                     <p>Published on {{ article.pub_date }}</p>
