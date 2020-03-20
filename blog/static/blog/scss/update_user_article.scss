@@ -1,5 +1,13 @@
 @import './../../../../static/main/scss/utility';
 
+.link--back {
+
+    a {
+        font-size: 1.2rem;
+        @include background-text($card-color);
+    }
+}
+
 .heading--center {
     font-family: $heading-font;
     padding-bottom: 1rem;

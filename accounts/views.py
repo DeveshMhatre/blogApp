@@ -47,7 +47,7 @@ def login_user(request):
             if user != None:
                 login(request, user=user)
                 messages.success(request, 'Signed in successfully')
-                return HttpResponseRedirect(reverse('blog:user_profile', args=[user.id]))
+                return redirect('blog:user_profile')
             else:
                 messages.warning(request, 'The Username or Password is incorrect. Please try again.')
     else:

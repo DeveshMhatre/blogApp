@@ -1,3 +1,9 @@
+.link--back a {
+  font-size: 1.2rem;
+  background-color: #F7F7F7;
+  color: #28104E;
+}
+
 .heading--center {
   font-family: "Cormorant Garamond", serif;
   padding-bottom: 1rem;
