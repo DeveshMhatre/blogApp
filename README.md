@@ -2,11 +2,12 @@
 
 A simple blog app, created using Django.
 
-## Table of Content
-
-* [General Info] (#general-info)
-* [Technologies] (#technologies)
-* [Setup] (#setup)
+## Table of Contents
+- [Blog App](#blog-app)
+  - [Table of Contents](#table-of-contents)
+  - [General Info](#general-info)
+  - [Technologies](#technologies)
+  - [Setup](#setup)
 
 ## General Info
 This is a simple blog app that was created for the purpose of learning Django.
